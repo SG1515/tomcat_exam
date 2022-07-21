@@ -16,8 +16,9 @@ public class GugudanServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8"); // 완성되는 HTML의 인코딩을 UTF-로 하겠다.
         resp.setContentType("text/html; charset=utf-8"); // 브라우저에게 우리가 만든 결과물이 UTF-8 이다 라고 알리는 의미
 
-        int dan = 8;
-        int limit = 5; //5단까지
+        //gugudan?dan=4&limit=5 4단 곱하기 5까지 URL에서
+        int dan = Integer.parseInt(req.getParameter("dan")); //문자열 입력 형변환
+        int limit = Integer.parseInt(req.getParameter("limit"));
 
         resp.getWriter().append("<h2>%d단</h2>".formatted(dan));
 
